@@ -1,18 +1,23 @@
-import * as H from 'history';
-import { match} from 'react-router';
-import { NotificationsApi, PopupApi } from './components';
+import {History} from 'history';
+import { match } from 'react-router';
+import { NotificationsApi, PopupApi, NavigationApi } from './components';
 
 export interface AppContext {
     router: {
-        history: H.History;
+        history: History;
         route: {
-            location: H.Location;
+            location: Location;
             match: match<any>;
         };
     };
     apis: {
         popup: PopupApi;
         notifications: NotificationsApi;
+        navigation: NavigationApi;
+        baseHref: string
     };
-    history: H.History;
+    history: History;
 }
+
+
+export const {Provider, Consumer} = React.createContext<AppContext["apis"]>(null);
