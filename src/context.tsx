@@ -14,10 +14,7 @@ export interface AppContext {
         popup: PopupApi;
         notifications: NotificationsApi;
         navigation: NavigationApi;
-        baseHref: string
+        history: History;
+        baseHref: string;
     };
-    history: History;
 }
-
-
-export const {Provider, Consumer} = React.createContext<AppContext["apis"]>(null);
